@@ -1,25 +1,25 @@
-import logo from './logo.svg';
+import { useNavigate } from 'react-router-dom';
 import './App.css';
-
+import UserForm from './UserForm';
 function App() {
+
+  const navigate = useNavigate();
+
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1 className='users-h1' style={{color: 'red'}}>welcome to chamith site</h1>
+        <button className='users-button' onClick={clickme}>Uses</button> 
+        {/* <button className='users-button' onClick={() => navigate('/users')}>Uses</button> */} 
       </header>
     </div>
   );
+  function clickme() {
+    navigate('/users');
+  }
+   
 }
+
 
 export default App;

@@ -16,7 +16,7 @@ const Users = () => {
   }, []);
 
   const getUsers = () => {
-    Axios.get(process.env.REACT_APP_ENDPOINT="/api/users")
+    Axios.get(process.env.REACT_APP_ENDPOINT+"/api/users")
       .then((response) => {
         setUsers(response?.data?.response || []);
       })
@@ -31,7 +31,7 @@ const Users = () => {
       id: data.id,
       name: data.name,
     };
-    Axios.post(process.env.REACT_APP_ENDPOINT="/api/adduser", payload)
+    Axios.post(process.env.REACT_APP_ENDPOINT+"/api/adduser", payload)
       .then((response) => {
         getUsers();
         setSubmitted(false);
@@ -47,7 +47,7 @@ const Users = () => {
       id: data.id,
       name: data.name,
     };
-    Axios.post(process.env.REACT_APP_ENDPOINT="/api/updateusers", payload)
+    Axios.post(process.env.REACT_APP_ENDPOINT+"/api/updateusers", payload)
       .then((response) => {
         getUsers();
         setSubmitted(false);
@@ -59,7 +59,7 @@ const Users = () => {
   };
 
   const deleteUser = (data) => {
-    Axios.post(process.env.REACT_APP_ENDPOINT="/api/deleteusers", data)
+    Axios.post(process.env.REACT_APP_ENDPOINT+"/api/deleteusers", data)
       .then(() => {
         getUsers();
         
